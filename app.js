@@ -2,9 +2,10 @@ let error_count = 0;
 
 async function searchUniversities () {
     
+    const country = document.getElementById('select_country').value;
+    const table_body = document.getElementById('universites_table_body');
+
     try {
-        const country = document.getElementById('select_country').value;
-        const table_body = document.getElementById('universites_table_body');
 
         const data = await fetch(`http://universities.hipolabs.com/search?country=${country}`);
         const originalData = await data.json();
