@@ -4,12 +4,16 @@ function searchUniversities(){
     const country = document.getElementById('select_country').value;
     const table_body = document.getElementById('universites_table_body');
 
-    const data = fetch(`http://universities.hipolabs.com/search?country=${country}`)
+    const data = fetch(`unversitieslist.js`)
     .then((data) => {
-        const originalData = data.json();
-        return originalData;
-    }).then((originalData) => {
-        console.log(originalData);
+        const allData = data.json();
+        return allData;
+    }).then((allData) => {
+        
+        console.log(allData);
+
+        const originalData = allData.filter(u => u.country.toLowerCase() === country.toLowerCase());
+
         let universities_data = '';
         let count = 0;
         originalData.forEach(universities => {
