@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vote Validation</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
+
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+    <div id="container" class="container">
+        <h1>Universities List</h1>
+        <div class="flex">
+            <select class="form-select" id="select_country" aria-label="Default select example">
+                <option selected>Select Country</option>
+                <option value="India">India</option>
+                <option value="United Kingdom">United Kingdom</option>
+                <option value="Canada">Canada</option>
+                <option value="Turkey">Turkey</option>
+                <option value="Australia">Australia</option>
+                <option value="Germany">Germany</option>
+                <option value="France">France</option>
+                <option value="Sri Lanka">Sri Lanka</option>
+                <option value="Sri Lanka">Canada</option>
+            </select>
+            <button class="search_btn" onclick="searchUniversities();">Search</button>
+        </div>
+
+        <div class="">
+            <div class="overflow-x-auto">
+                <table class="table table-xs table-pin-rows table-pin-cols">
+                    <thead>
+                    <tr>
+                        <th></th>
+                        <td>Name</td>
+                        <td>Country</td>
+                        <td>State</td>
+                        <td>Domian</td>
+                        <td>Website</td>
+                        <td>Country Code</td>
+                        <th></th>
+                    </tr>
+                    </thead>
+                    <tbody id="universites_table_body"><tr><th>1</th>
+                                <td>Engineering Institute of Technology</td>
+                                <td>Australia</td>
+                                <td>-</td>
+                                <td>student.eit.edu.au</td>
+                                <td>https://www.eit.edu.au/</td>
+                                <td>AU</td>
+                                <th>1</th></tr><tr><th>2</th>
+                                <td>Australian Correspondence Schools</td>
+                                <td>Australia</td>
+                                <td>-</td>
+                                <td>acs.edu.au</td>
+                                <td>http://www.acs.edu.au/</td>
+                                <td>AU</td>
+                                <th>2</th></tr><tr><th>3</th>
+                                <td>Australian Catholic University</td>
+                                <td>Australia</td>
+                                <td>New South Wales</td>
+                                <td>acu.edu.au</td>
+                                <td>http://www.acu.edu.au/</td>
+                                <td>AU</td>
+                                <th>3</th></tr><tr><th>4</th>
+                                <td>University of Adelaide</td>
+                                <td>Australia</td>
+                                <td>South Australia</td>
+                                <td>adelaide.edu.au</td>
+                                <td>http://www.adelaide.edu.au/</td>
+                                <td>AU</td>
+                                <th>4</th></tr><tr><th>5</th>
+                                <td>Australian Defence Force Academy</td>
+                                <td>Australia</td>
+                                <td>Australian Capital Territory</td>
+                                <td>adfa.oz.au</td>
+                                <td>http://www.adfa.oz.au/</td>
+                                <td>AU</td>
+                                <th>5</th></tr><tr><th>6</th>
+                                <td>Australian Lutheran College</td>
+                                <td>Australia</td>
+                                <td>South Australia</td>
+                                <td>alc.edu.au</td>
+                                <td>http://www.alc.edu.au/</td>
+                                <td>AU</td>
+                                <th>6</th></tr><tr><th>7</th>
+                                <td>Australian Maritime College</td>
+                                <td>Australia</td>
+                                <td>Tasmania</td>
+                                <td>amc.edu.au</td>
+                                <td>http://www.amc.edu.au/</td>
+                                <td>AU</td>
+                                <th>7</th></tr><tr><th>8</th>
+                                <td>Australian National University</td>
+                                <td>Australia</td>
+                                <td>Australian Capital Territory</td>
+                                <td>anu.edu.au</td>
+                                <td>http://www.anu.edu.au/</td>
+                                <td>AU</td>
+                                <th>8</th></tr><tr><th>9</th>
+                                <td>Avondale University</td>
+                                <td>Australia</td>
+                                <td>New South Wales</td>
+                                <td>avondale.edu.au</td>
+                                <td>http://www.avondale.edu.au/</td>
+                                <td>AU</td>
+                                <th>9</th></tr><tr><th>10</th>
+                                <td>Federation University Australia</td>
+                                <td>Australia</td>
+                                <td>Victoria</td>
+                                <td>federation.edu.au</td>
+                                <td>http://federation.edu.au/</td>
+                                <td>AU</td>
+                                <th>10</th></tr><tr><th>11</th>
+                                <td>Bond University</td>
+                                <td>Australia</td>
+                                <td>Queensland</td>
+                                <td>bond.edu.au</td>
+                                <td>http://www.bond.edu.au/</td>
+                                <td>AU</td>
+                                <th>11</th></tr><tr><th>12</th>
+                                <td>University of Canberra</td>
+                                <td>Australia</td>
+                                <td>Australian Capital Territory</td>
+                                <td>canberra.edu.au</td>
+                                <td>http://www.canberra.edu.au/</td>
+                                <td>AU</td>
+                                <th>12</th></tr><tr><th>13</th>
+                                <td>Charles Darwin University</td>
+                                <td>Australia</td>
+                                <td>Northern Territory</td>
+                                <td>cdu.edu.au</td>
+                                <td>http://www.cdu.edu.au/</td>
+                                <td>AU</td>
+                                <th>13</th></tr><tr><th>14</th>
+                                <td>Central Queensland University</td>
+                                <td>Australia</td>
+                                <td>Queensland</td>
+                                <td>cqu.edu.au</td>
+                                <td>http://www.cqu.edu.au/</td>
+                                <td>AU</td>
+                                <th>14</th></tr><tr><th>15</th>
+                                <td>Charles Sturt University</td>
+                                <td>Australia</td>
+                                <td>New South Wales</td>
+                                <td>csu.edu.au</td>
+                                <td>http://www.csu.edu.au/</td>
+                                <td>AU</td>
+                                <th>15</th></tr><tr><th>16</th>
+                                <td>Curtin University</td>
+                                <td>Australia</td>
+                                <td>Western Australia</td>
+                                <td>curtin.edu.au</td>
+                                <td>http://www.curtin.edu.au/</td>
+                                <td>AU</td>
+                                <th>16</th></tr><tr><th>17</th>
+                                <td>Deakin University</td>
+                                <td>Australia</td>
+                                <td>Victoria</td>
+                                <td>deakin.edu.au</td>
+                                <td>http://www.deakin.edu.au/</td>
+                                <td>AU</td>
+                                <th>17</th></tr><tr><th>18</th>
+                                <td>Edith Cowan University</td>
+                                <td>Australia</td>
+                                <td>Western Australia</td>
+                                <td>ecu.edu.au</td>
+                                <td>http://www.ecu.edu.au/</td>
+                                <td>AU</td>
+                                <th>18</th></tr><tr><th>19</th>
+                                <td>Flinders University of South Australia</td>
+                                <td>Australia</td>
+                                <td>South Australia</td>
+                                <td>flinders.edu.au</td>
+                                <td>http://www.flinders.edu.au/</td>
+                                <td>AU</td>
+                                <th>19</th></tr><tr><th>20</th>
+                                <td>Griffith University</td>
+                                <td>Australia</td>
+                                <td>Queensland</td>
+                                <td>griffith.edu.au</td>
+                                <td>https://www.griffith.edu.au/</td>
+                                <td>AU</td>
+                                <th>20</th></tr><tr><th>21</th>
+                                <td>Holmes Institute</td>
+                                <td>Australia</td>
+                                <td>Victoria</td>
+                                <td>holmes.edu.au</td>
+                                <td>http://www.holmes.edu.au/</td>
+                                <td>AU</td>
+                                <th>21</th></tr><tr><th>22</th>
+                                <td>Blue Mountains Hotel School</td>
+                                <td>Australia</td>
+                                <td>New South Wales</td>
+                                <td>hotelschool.com.au</td>
+                                <td>http://www.hotelschool.com.au/</td>
+                                <td>AU</td>
+                                <th>22</th></tr><tr><th>23</th>
+                                <td>International College of Tourism and Hotel Management</td>
+                                <td>Australia</td>
+                                <td>-</td>
+                                <td>icthm.edu.au</td>
+                                <td>http://www.icthm.edu.au/</td>
+                                <td>AU</td>
+                                <th>23</th></tr><tr><th>24</th>
+                                <td>Institute Of Technology, Australia</td>
+                                <td>Australia</td>
+                                <td>-</td>
+                                <td>iota.edu.au</td>
+                                <td>http://www.iota.edu.au/</td>
+                                <td>AU</td>
+                                <th>24</th></tr><tr><th>25</th>
+                                <td>James Cook University of North Queensland</td>
+                                <td>Australia</td>
+                                <td>Queensland</td>
+                                <td>jcu.edu.au</td>
+                                <td>http://www.jcu.edu.au/</td>
+                                <td>AU</td>
+                                <th>25</th></tr><tr><th>26</th>
+                                <td>La Trobe University</td>
+                                <td>Australia</td>
+                                <td>Victoria</td>
+                                <td>latrobe.edu.au</td>
+                                <td>http://www.latrobe.edu.au/</td>
+                                <td>AU</td>
+                                <th>26</th></tr><tr><th>27</th>
+                                <td>Marcus Oldham College</td>
+                                <td>Australia</td>
+                                <td>Victoria</td>
+                                <td>marcusoldham.vic.edu.au</td>
+                                <td>http://www.marcusoldham.vic.edu.au/</td>
+                                <td>AU</td>
+                                <th>27</th></tr><tr><th>28</th>
+                                <td>Monash University</td>
+                                <td>Australia</td>
+                                <td>Victoria</td>
+                                <td>monash.edu, monash.edu.au</td>
+                                <td>http://www.monash.edu/</td>
+                                <td>AU</td>
+                                <th>28</th></tr><tr><th>29</th>
+                                <td>Macquarie University</td>
+                                <td>Australia</td>
+                                <td>New South Wales</td>
+                                <td>mq.edu.au</td>
+                                <td>http://www.mq.edu.au/</td>
+                                <td>AU</td>
+                                <th>29</th></tr><tr><th>30</th>
+                                <td>Murdoch University</td>
+                                <td>Australia</td>
+                                <td>Western Australia</td>
+                                <td>murdoch.edu.au, student.murdoch.edu.au</td>
+                                <td>http://www.murdoch.edu.au/</td>
+                                <td>AU</td>
+                                <th>30</th></tr><tr><th>31</th>
+                                <td>University of Notre Dame Australia</td>
+                                <td>Australia</td>
+                                <td>Western Australia</td>
+                                <td>nd.edu.au</td>
+                                <td>http://www.nd.edu.au/</td>
+                                <td>AU</td>
+                                <th>31</th></tr><tr><th>32</th>
+                                <td>University of Newcastle</td>
+                                <td>Australia</td>
+                                <td>New South Wales</td>
+                                <td>newcastle.edu.au</td>
+                                <td>http://www.newcastle.edu.au/</td>
+                                <td>AU</td>
+                                <th>32</th></tr><tr><th>33</th>
+                                <td>Batchelor Institute of Indigenous Tertiary Education</td>
+                                <td>Australia</td>
+                                <td>Northern Territory</td>
+                                <td>nt.gov.au</td>
+                                <td>http://www.nt.gov.au/batc/</td>
+                                <td>AU</td>
+                                <th>33</th></tr><tr><th>34</th>
+                                <td>Queensland University of Technology</td>
+                                <td>Australia</td>
+                                <td>Queensland</td>
+                                <td>qut.edu.au</td>
+                                <td>http://www.qut.edu.au/</td>
+                                <td>AU</td>
+                                <th>34</th></tr><tr><th>35</th>
+                                <td>Royal Melbourne Institute of Technology</td>
+                                <td>Australia</td>
+                                <td>Victoria</td>
+                                <td>rmit.edu.au</td>
+                                <td>http://www.rmit.edu.au/</td>
+                                <td>AU</td>
+                                <th>35</th></tr><tr><th>36</th>
+                                <td>Southern Cross University</td>
+                                <td>Australia</td>
+                                <td>New South Wales</td>
+                                <td>scu.edu.au</td>
+                                <td>http://www.scu.edu.au/</td>
+                                <td>AU</td>
+                                <th>36</th></tr><tr><th>37</th>
+                                <td>Swinburne University of Technology</td>
+                                <td>Australia</td>
+                                <td>Victoria</td>
+                                <td>swin.edu.au</td>
+                                <td>http://www.swin.edu.au/</td>
+                                <td>AU</td>
+                                <th>37</th></tr><tr><th>38</th>
+                                <td>University of New England</td>
+                                <td>Australia</td>
+                                <td>New South Wales</td>
+                                <td>une.edu.au</td>
+                                <td>http://www.une.edu.au/</td>
+                                <td>AU</td>
+                                <th>38</th></tr><tr><th>39</th>
+                                <td>University of Melbourne</td>
+                                <td>Australia</td>
+                                <td>Victoria</td>
+                                <td>unimelb.edu, unimelb.edu.au</td>
+                                <td>http://www.unimelb.edu.au/</td>
+                                <td>AU</td>
+                                <th>39</th></tr><tr><th>40</th>
+                                <td>University of South Australia</td>
+                                <td>Australia</td>
+                                <td>South Australia</td>
+                                <td>unisa.edu.au</td>
+                                <td>http://www.unisa.edu.au/</td>
+                                <td>AU</td>
+                                <th>40</th></tr><tr><th>41</th>
+                                <td>University of New South Wales</td>
+                                <td>Australia</td>
+                                <td>New South Wales</td>
+                                <td>unsw.edu.au</td>
+                                <td>http://www.unsw.edu.au/</td>
+                                <td>AU</td>
+                                <th>41</th></tr><tr><th>42</th>
+                                <td>University of Wollongong</td>
+                                <td>Australia</td>
+                                <td>New South Wales</td>
+                                <td>uow.edu.au, uowmail.edu.au</td>
+                                <td>http://www.uow.edu.au/</td>
+                                <td>AU</td>
+                                <th>42</th></tr><tr><th>43</th>
+                                <td>University of Queensland</td>
+                                <td>Australia</td>
+                                <td>Queensland</td>
+                                <td>uq.edu.au</td>
+                                <td>http://www.uq.edu.au/</td>
+                                <td>AU</td>
+                                <th>43</th></tr><tr><th>44</th>
+                                <td>University of the Sunshine Coast</td>
+                                <td>Australia</td>
+                                <td>Queensland</td>
+                                <td>usc.edu.au</td>
+                                <td>http://www.usc.edu.au/</td>
+                                <td>AU</td>
+                                <th>44</th></tr><tr><th>45</th>
+                                <td>University of Southern Queensland</td>
+                                <td>Australia</td>
+                                <td>Queensland</td>
+                                <td>usq.edu.au</td>
+                                <td>http://www.usq.edu.au/</td>
+                                <td>AU</td>
+                                <th>45</th></tr><tr><th>46</th>
+                                <td>University of Sydney</td>
+                                <td>Australia</td>
+                                <td>New South Wales</td>
+                                <td>sydney.edu.au, usyd.edu.au, uni.sydney.edu.au</td>
+                                <td>http://sydney.edu.au/</td>
+                                <td>AU</td>
+                                <th>46</th></tr><tr><th>47</th>
+                                <td>University of Tasmania</td>
+                                <td>Australia</td>
+                                <td>Tasmania</td>
+                                <td>utas.edu.au</td>
+                                <td>http://www.utas.edu.au/</td>
+                                <td>AU</td>
+                                <th>47</th></tr><tr><th>48</th>
+                                <td>University of Technology Sydney</td>
+                                <td>Australia</td>
+                                <td>New South Wales</td>
+                                <td>uts.edu.au, student.uts.edu.au</td>
+                                <td>http://www.uts.edu.au/</td>
+                                <td>AU</td>
+                                <th>48</th></tr><tr><th>49</th>
+                                <td>University of Western Australia</td>
+                                <td>Australia</td>
+                                <td>Western Australia</td>
+                                <td>uwa.edu.au</td>
+                                <td>http://www.uwa.edu.au/</td>
+                                <td>AU</td>
+                                <th>49</th></tr><tr><th>50</th>
+                                <td>University of Western Sydney</td>
+                                <td>Australia</td>
+                                <td>New South Wales</td>
+                                <td>uws.edu.au</td>
+                                <td>http://www.uws.edu.au/</td>
+                                <td>AU</td>
+                                <th>50</th></tr><tr><th>51</th>
+                                <td>Victoria University</td>
+                                <td>Australia</td>
+                                <td>Victoria</td>
+                                <td>vu.edu.au</td>
+                                <td>http://www.vu.edu.au/</td>
+                                <td>AU</td>
+                                <th>51</th></tr><tr><th>52</th>
+                                <td>Torrens University Australia</td>
+                                <td>Australia</td>
+                                <td>South Australia</td>
+                                <td>torrens.edu.au, tua.edu.au</td>
+                                <td>https://www.torrens.edu.au</td>
+                                <td>AU</td>
+                                <th>52</th></tr><tr><th>53</th>
+                                <td>Box Hill Institute</td>
+                                <td>Australia</td>
+                                <td>Victoria</td>
+                                <td>bhtafe.edu.au, boxhill.edu.au</td>
+                                <td>http://www.bhtafe.edu.au, http://www.boxhill.edu.au</td>
+                                <td>AU</td>
+                                <th>53</th></tr><tr><th>54</th>
+                                <td>Linuwel School</td>
+                                <td>Australia</td>
+                                <td>New South Wales</td>
+                                <td>linuwel.nsw.edu.au</td>
+                                <td>http://www.linuwel.nsw.edu.au/</td>
+                                <td>AU</td>
+                                <th>54</th></tr><tr><th>55</th>
+                                <td>St. George's University (Australia)</td>
+                                <td>Australia</td>
+                                <td>-</td>
+                                <td>stgc.uwa.edu.au</td>
+                                <td>https://stgc.uwa.edu.au/</td>
+                                <td>AU</td>
+                                <th>55</th></tr><tr><th>56</th>
+                                <td>SP Jain School of Global Management</td>
+                                <td>Australia</td>
+                                <td>-</td>
+                                <td>spjain.org</td>
+                                <td>https://www.spjain.org/</td>
+                                <td>AU</td>
+                                <th>56</th></tr><tr><th>57</th>
+                                <td>Western Sydney University</td>
+                                <td>Australia</td>
+                                <td>New South Wales</td>
+                                <td>westernsydney.edu.au</td>
+                                <td>https://www.westernsydney.edu.au/</td>
+                                <td>AU</td>
+                                <th>57</th></tr></tbody>
+                    <tfoot>
+                    <tr>
+                        <th></th>
+                        <td>Name</td>
+                        <td>Country</td>
+                        <td>State</td>
+                        <td>Domian</td>
+                        <td>Website</td>
+                        <td>Country Code</td>
+                        <th></th>
+                    </tr>
+                    </tfoot>
+                </table>
+                </div>
+        </div>
+
+    </div>
+    
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <script src="./app.js"></script>
+</body>
+</html>
