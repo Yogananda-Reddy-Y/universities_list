@@ -1,28 +1,14 @@
 let error_count = 0;
 
-import fetch from 'node-fetch';
-
-export default async function handler(req, res) {
-  const url = `http://universities.hipolabs.com${req.url.replace('/api/proxy', '')}`;
-  try {
-    const response = await fetch(url);
-    const data = await response.json();
-    res.status(200).json(data);
-  } catch (error) {
-    res.status(500).json({ error: 'Proxy failed' });
-  }
-}
-
-async function searchUniversities () {
-    
+function searchUniversities(){
     const country = document.getElementById('select_country').value;
     const table_body = document.getElementById('universites_table_body');
 
-    try {
-
-        const data = await fetch(`/api/proxy/search?country=${country}`);
-        const originalData = await data.json();
-
+    const data = fetch(`http://universities.hipolabs.com/search?country=${country}`)
+    .then((data) => {
+        const originalData = data.json();
+        return originalData;
+    }).then((originalData) => {
         console.log(originalData);
         let universities_data = '';
         let count = 0;
@@ -39,7 +25,9 @@ async function searchUniversities () {
         });
 
         table_body.innerHTML = universities_data;
-    } catch (error) {
+
+    }).catch(()=> {
+        console.log("apis calling failed");
         error_count++;
         if (error_count < 4) {
             searchUniversities();
@@ -49,9 +37,5 @@ async function searchUniversities () {
             table_body.innerHTML = `<tr><td colspan="7">Failed to load data. Please try again later.</td></tr>`;
     
         }
-        
-    }
-    
-
-
+    });
 }
