@@ -26,13 +26,13 @@ function searchUniversities(){
 
         table_body.innerHTML = universities_data;
 
-    }).catch(()=> {
+    }).catch((error)=> {
         console.log("apis calling failed");
         error_count++;
         if (error_count < 4) {
             searchUniversities();
         }else{
-            console.error('Error fetching universities:', error);
+            console.log('Error fetching universities:', error);
             // Optionally show user-friendly message on the page:
             table_body.innerHTML = `<tr><td colspan="7">Failed to load data. Please try again later.</td></tr>`;
     
