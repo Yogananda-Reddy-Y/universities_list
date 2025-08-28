@@ -1,5 +1,7 @@
+let error_count = 0;
+
 async function searchUniversities () {
-    let error_count = 0;
+    
     try {
         const country = document.getElementById('select_country').value;
         const table_body = document.getElementById('universites_table_body');
